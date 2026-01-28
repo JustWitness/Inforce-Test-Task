@@ -9,10 +9,10 @@ class MenuItemInline(admin.TabularInline):
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):
-    list_display = ('restaurant', 'name', 'date', 'vote_count', 'total_price')
-    fields = ('name', 'restaurant', 'date', 'vote_count', 'total_price')
+    list_display = ('restaurant', 'name', 'date', 'total_price', 'vote_count',)
+    fields = ('restaurant', 'name', 'date', 'total_price', 'vote_count',)
     inlines = [MenuItemInline]
-    readonly_fields = ('items', 'total_price', 'vote_count')
+    readonly_fields = ('total_price', 'vote_count',)
 
     @admin.display(description='Votes')
     def vote_count_display(self, obj):
@@ -25,6 +25,6 @@ class MenuAdmin(admin.ModelAdmin):
 
 @admin.register(MenuVote)
 class MenuVoteAdmin(admin.ModelAdmin):
-    list_display = ('menu', 'employee', 'created_at')
-    fields = ('menu', 'employee', 'created_at')
+    list_display = ('menu', 'employee', 'created_at',)
+    fields = ('menu', 'employee', 'created_at',)
     readonly_fields = ('created_at',)
