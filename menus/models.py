@@ -59,10 +59,10 @@ class MenuVote(models.Model):
         related_name='votes',
         limit_choices_to={'role': UserRole.EMPLOYEE},
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
 
     class Meta:
-        unique_together = ('menu', 'employee')
+        unique_together = ('employee', 'created_at')
 
     def __str__(self):
         return f'{self.employee.username} - {self.created_at}'
