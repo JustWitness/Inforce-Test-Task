@@ -2,8 +2,8 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path("menu/", MenuAPIView.as_view()),
-    path("menu/available", AvailableMenusAPIView.as_view()),
-    path("menu/vote/", MenuVoteAPIView.as_view()),
-    path("menu/winner", MenuResultsAPIView.as_view()),
+    path("menu/", MenuAPIView.as_view(), name="menu"),
+    path("menu/available", AvailableMenusAPIView.as_view(), name="menu-available"),
+    path("menu/vote/", MenuVoteAPIView.as_view(), name="menu-vote"),
+    path("menu/winner", MenuResultsAPIView.as_view(), name="menu-winner"),
 ]
