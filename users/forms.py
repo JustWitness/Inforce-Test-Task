@@ -3,9 +3,9 @@ from .models import User
 
 
 class UserCreateForm(UserCreationForm):
-        class Meta:
-            model = User
-            fields = ('email', 'username', 'first_name', 'last_name', 'role')
+    class Meta:
+        model = User
+        fields = ('email', 'username', 'first_name', 'last_name', 'role')
 
 
 class UserUpdateForm(UserChangeForm):

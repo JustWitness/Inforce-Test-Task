@@ -7,6 +7,7 @@ from .models import Menu
 
 User = get_user_model()
 
+
 # Create your tests here.
 class MenuSystemTests(APITestCase):
 
@@ -26,13 +27,12 @@ class MenuSystemTests(APITestCase):
             username="test-employee", email="employee@test.com", password="password123", role="EMPLOYEE"
         )
 
-
     def test_restaurant_can_create_menu(self):
         self.client.force_authenticate(user=self.restaurant1)
         data = {
             "name": "Pizza Day",
             "date": timezone.localdate(),
-            "items": [{"name": "Margherita", "description":"Pizza", "price": 10.00}]
+            "items": [{"name": "Margherita", "description": "Pizza", "price": 10.00}]
         }
         # Note: Added format="json" to avoid the 400 error we saw earlier!
         response = self.client.post(self.menu_url, data, format="json")
@@ -55,8 +55,8 @@ class MenuSystemTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_get_winner(self):
-        m1 = Menu.objects.create(restaurant=self.restaurant1, name="Menu A", date=timezone.localdate())
-        m2 = Menu.objects.create(restaurant=self.restaurant2, name="Menu B", date=timezone.localdate())
+        Menu.objects.create(restaurant=self.restaurant1, name="Menu A", date=timezone.localdate())
+        Menu.objects.create(restaurant=self.restaurant2, name="Menu B", date=timezone.localdate())
 
         self.client.force_authenticate(user=self.employee)
         response = self.client.get(self.results_url)

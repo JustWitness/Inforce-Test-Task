@@ -5,6 +5,7 @@ from django.db.models import Sum
 from users.enums import UserRole
 from users.models import User
 
+
 # Create your models here.
 class Menu(models.Model):
     restaurant = models.ForeignKey(

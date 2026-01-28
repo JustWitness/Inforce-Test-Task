@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import *
+from .views import MenuAPIView, AvailableMenusAPIView, MenuVoteAPIView, MenuResultsAPIView
 
 urlpatterns = [
     path("menu/", MenuAPIView.as_view(), name="menu"),

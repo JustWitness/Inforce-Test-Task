@@ -58,4 +58,3 @@ class MenuSerializer(serializers.ModelSerializer):
         if value > timezone.localdate():
             raise serializers.ValidationError("You can't create menu for a past date")
         return value
-

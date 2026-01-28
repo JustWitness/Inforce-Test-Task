@@ -1,11 +1,13 @@
 from django.contrib import admin
 from menus.models import Menu, MenuItem, MenuVote
 
+
 # Register your models here.
 class MenuItemInline(admin.TabularInline):
     model = MenuItem
     extra = 1  # Number of empty rows to show for new items
     fields = ['name', 'description', 'price']
+
 
 @admin.register(Menu)
 class MenuAdmin(admin.ModelAdmin):

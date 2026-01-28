@@ -13,6 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 class UserRegisterSerializer(serializers.ModelSerializer):
     password1 = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)
+
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'first_name', 'last_name', 'role', 'password1', 'password2')
@@ -33,7 +34,6 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Role cannot register as an Admin via this endpoint")
 
         return attrs
-
 
     def create(self, validated_data):
         password = validated_data.pop('password1')

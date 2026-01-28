@@ -6,6 +6,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 User = get_user_model()
 
+
 # Create your tests here.
 class AuthTests(APITestCase):
 
